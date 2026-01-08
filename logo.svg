@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38a169;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="url(#bgGradient)"/>
+  
+  <!-- AI Brain circuit pattern (subtle) -->
+  <g opacity="0.1" stroke="#fff" stroke-width="2" fill="none">
+    <circle cx="256" cy="200" r="30"/>
+    <circle cx="200" cy="280" r="25"/>
+    <circle cx="312" cy="280" r="25"/>
+    <line x1="256" y1="230" x2="220" y2="265"/>
+    <line x1="256" y1="230" x2="292" y2="265"/>
+    <line x1="200" y1="305" x2="200" y2="340"/>
+    <line x1="312" y1="305" x2="312" y2="340"/>
+  </g>
+  
+  <!-- Credit card with scan line -->
+  <g transform="translate(106, 180)">
+    <!-- Card body -->
+    <rect x="0" y="0" width="300" height="180" rx="20" fill="url(#cardGradient)" opacity="0.95"/>
+    <rect x="0" y="0" width="300" height="180" rx="20" fill="none" stroke="#fff" stroke-width="3"/>
+    
+    <!-- Card chip -->
+    <rect x="25" y="30" width="50" height="40" rx="5" fill="#ffd700" opacity="0.9"/>
+    <line x1="35" y1="40" x2="65" y2="40" stroke="#000" stroke-width="1.5"/>
+    <line x1="35" y1="50" x2="65" y2="50" stroke="#000" stroke-width="1.5"/>
+    <line x1="35" y1="60" x2="65" y2="60" stroke="#000" stroke-width="1.5"/>
+    
+    <!-- Card number (dots) -->
+    <g fill="#fff" opacity="0.7">
+      <circle cx="25" cy="100" r="4"/>
+      <circle cx="45" cy="100" r="4"/>
+      <circle cx="65" cy="100" r="4"/>
+      <circle cx="85" cy="100" r="4"/>
+      
+      <circle cx="115" cy="100" r="4"/>
+      <circle cx="135" cy="100" r="4"/>
+      <circle cx="155" cy="100" r="4"/>
+      <circle cx="175" cy="100" r="4"/>
+    </g>
+    
+    <!-- Naira symbol -->
+    <text x="240" y="160" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#fff" opacity="0.8">₦</text>
+  </g>
+  
+  <!-- AI scan line (animated feel) -->
+  <rect x="80" y="250" width="352" height="4" fill="#48bb78" opacity="0.6"/>
+  <rect x="80" y="250" width="352" height="4" fill="#fff" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- AI Eye/Scanner icon -->
+  <g transform="translate(220, 380)">
+    <circle cx="36" cy="20" r="35" fill="#fff" opacity="0.9"/>
+    <circle cx="36" cy="20" r="20" fill="#667eea"/>
+    <circle cx="36" cy="20" r="10" fill="#fff"/>
+    <path d="M 15,20 Q 36,0 57,20" stroke="#fff" stroke-width="3" fill="none" opacity="0.5"/>
+  </g>
+</svg>

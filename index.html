@@ -7,17 +7,17 @@
     
     <!-- PWA Meta Tags -->
     <meta name="description" content="AI-Powered Bank Account Balance Detection System. Point your camera at people to detect their estimated account balance in real-time!">
-    <meta name="theme-color" content="#1e3a8a">
+    <meta name="theme-color" content="#0a0e27">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Balance Scanner">
     <link rel="manifest" href="/manifest.json">
     
     <!-- Favicons -->
-    <link rel="icon" type="image/webp" href="/logo.webp">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/logo-192.png">
     <link rel="apple-touch-icon" href="/logo-192.png">
-    <link rel="shortcut icon" href="/logo.webp">
+    <link rel="shortcut icon" href="/favicon.png">
     
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface@0.0.7"></script>
@@ -54,23 +54,70 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0e27;
             min-height: 100vh;
-            color: #1a202c;
+            color: #e2e8f0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(72, 187, 120, 0.1) 0%, transparent 50%);
+            z-index: 0;
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .header {
             text-align: center;
             color: white;
-            margin-bottom: 30px;
-            padding: 30px 20px;
+            margin-bottom: 40px;
+            padding: 40px 20px 30px;
+        }
+
+        .logo-container {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-center;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-container img {
+            width: 64px;
+            height: 64px;
         }
 
         .header h1 {
@@ -78,62 +125,89 @@
             margin-bottom: 10px;
             font-weight: 700;
             letter-spacing: -1px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%, #48bb78 150%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .header p {
             font-size: 1.1em;
-            opacity: 0.95;
-            font-weight: 300;
+            opacity: 0.75;
+            font-weight: 400;
+            color: #94a3b8;
+        }
+
+        .ai-badge {
+            display: inline-block;
+            background: rgba(72, 187, 120, 0.2);
+            border: 1px solid rgba(72, 187, 120, 0.5);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #48bb78;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .ai-badge::before {
+            content: '🤖 ';
+            margin-right: 4px;
         }
 
         .main-card {
-            background: white;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
             padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             margin-bottom: 30px;
         }
 
         .upload-section {
             text-align: center;
             padding: 40px;
-            border: 3px dashed #cbd5e0;
-            border-radius: 15px;
-            background: #f7fafc;
+            border: 3px dashed rgba(102, 126, 234, 0.4);
+            border-radius: 20px;
+            background: rgba(102, 126, 234, 0.05);
             cursor: pointer;
             transition: all 0.3s;
             margin-bottom: 20px;
         }
 
         .upload-section:hover {
-            border-color: #1e3a8a;
-            background: #edf2f7;
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
         }
 
         .upload-section.dragover {
-            border-color: #1e3a8a;
-            background: #e6fffa;
+            border-color: #48bb78;
+            background: rgba(72, 187, 120, 0.1);
         }
 
         .upload-icon {
             font-size: 3em;
             margin-bottom: 15px;
-            color: #1e3a8a;
+            color: #667eea;
+            filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.3));
         }
 
         .upload-section h3 {
             font-size: 1.3em;
             margin-bottom: 10px;
-            color: #2d3748;
+            color: #e2e8f0;
         }
 
         .upload-section p {
-            color: #718096;
+            color: #94a3b8;
             font-size: 0.95em;
         }
 
         .btn {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
             padding: 15px 35px;
@@ -142,12 +216,29 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.6);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
         }
 
         .btn:disabled {
@@ -157,15 +248,16 @@
         }
 
         .btn-secondary {
-            background: white;
-            color: #1e3a8a;
-            border: 2px solid #1e3a8a;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            border: 2px solid rgba(102, 126, 234, 0.5);
             margin-left: 10px;
+            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            background: #1e3a8a;
-            color: white;
+            background: rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
         }
 
         .video-container {
@@ -471,8 +563,12 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>💳 Balance Scanner</h1>
+            <div class="logo-container">
+                <img src="/logo-192.png" alt="Balance Scanner Logo">
+            </div>
+            <h1>Balance Scanner</h1>
             <p>AI-Powered Bank Account Balance Detection System</p>
+            <span class="ai-badge">AI-POWERED VISION</span>
         </div>
 
         <div class="main-card">
