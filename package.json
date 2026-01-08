@@ -1,0 +1,19 @@
+{
+  "name": "balance-scanner",
+  "version": "1.0.0",
+  "description": "AI-Powered Bank Account Balance Detection System",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "build": "echo 'No build needed'"
+  },
+  "keywords": [
+    "ai",
+    "face-detection",
+    "balance",
+    "scanner",
+    "pwa"
+  ],
+  "author": "Xela",
+  "license": "MIT"
+}

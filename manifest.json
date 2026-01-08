@@ -1,0 +1,39 @@
+{
+  "name": "Balance Scanner",
+  "short_name": "Balance Scanner",
+  "description": "AI-Powered Bank Account Balance Detection System",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e3a8a",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.webp",
+      "sizes": "256x256",
+      "type": "image/webp",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["entertainment", "utilities", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "/logo-512.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}
